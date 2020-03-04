@@ -7,8 +7,8 @@
     <ProjectGuid>{C088BFE1-AF13-4392-9CC1-4AFC949D3F6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CLShapes</RootNamespace>
-    <AssemblyName>CLShapes</AssemblyName>
+    <RootNamespace>MyCartographyObjects</RootNamespace>
+    <AssemblyName>MyCartographyObjects</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartoObj.cs" />
+    <Compile Include="CartoComparer.cs" />
+    <Compile Include="BoundingBox.cs" />
     <Compile Include="MyPolylineBoundingBoxComparer.cs" />
     <Compile Include="IIsPointClose.cs" />
     <Compile Include="IPointy.cs" />

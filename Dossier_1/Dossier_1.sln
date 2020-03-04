@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dossier_1", "Dossier_1\Dossier_1.csproj", "{8766353E-70F5-4A95-B55A-92ADAEA9AADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLShapes", "CLShapes\CLShapes.csproj", "{C088BFE1-AF13-4392-9CC1-4AFC949D3F6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCartographyObjects", "CLShapes\MyCartographyObjects.csproj", "{C088BFE1-AF13-4392-9CC1-4AFC949D3F6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathFunctions", "MathUtil\MathFunctions.csproj", "{0048F5D5-F2E7-461A-91E6-81C580A8A5A0}"
 EndProject

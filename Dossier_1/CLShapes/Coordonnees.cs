@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MathFunctions;
 
-namespace CLShapes
+namespace MyCartographyObjects
 {
     public class Coordonnees : CartoObj
     {

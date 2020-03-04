@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CLShapes\CLShapes.csproj">
+    <ProjectReference Include="..\CLShapes\MyCartographyObjects.csproj">
       <Project>{c088bfe1-af13-4392-9cc1-4afc949d3f6d}</Project>
-      <Name>CLShapes</Name>
+      <Name>MyCartographyObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\MathUtil\MathFunctions.csproj">
       <Project>{0048f5d5-f2e7-461a-91e6-81c580a8a5a0}</Project>

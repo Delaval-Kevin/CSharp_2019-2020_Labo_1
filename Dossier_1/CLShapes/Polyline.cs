@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using MathFunctions;
 
-namespace CLShapes
+namespace MyCartographyObjects
 {
-    public class Polyline : CartoObj, IPointy, IComparable<Polyline>
+    public class Polyline : CartoObj, IPointy, IComparable<Polyline>, IEquatable<Polyline>
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;
@@ -62,7 +62,7 @@ namespace CLShapes
         #region METHODES
         public override string ToString()
         {
-            string chaine = base.ToString() + " Epaisseur : " + Epaisseur + " Couleur : " + Couleur + " Liste : ";
+            string chaine = base.ToString() + " Epaisseur : " + Epaisseur + " Couleur : " + Couleur + " Longueur : " + CalculLongueur() + " Nombre de points : " + NbPoints +" Liste : ";
 
             if (!Coordonnees.Any())
             {
@@ -136,6 +136,11 @@ namespace CLShapes
         public int CompareTo(Polyline other)
         {
             return CalculLongueur().CompareTo(other.CalculLongueur());
+        }
+
+        public bool Equals(Polyline other)
+        {
+            return this.NbPoints == other.NbPoints;
         }
         #endregion
     }

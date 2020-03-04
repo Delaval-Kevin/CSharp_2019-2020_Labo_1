@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using MathFunctions;
 
-namespace CLShapes
+namespace MyCartographyObjects
 {
     public class Polygon : CartoObj, IPointy
     {
@@ -71,7 +71,7 @@ namespace CLShapes
         public override string ToString()
         {
             string chaine = base.ToString() + " Couleur de remplissage : " + CouleurRemplissage +
-                " Couleur de contour : " + CouleurContour + " Opacite : " + Opacite + " Liste : ";
+                " Couleur de contour : " + CouleurContour + " Opacite : " + Opacite + " Nombre de points : " + NbPoints + " Liste : ";
            
             if (!Coordonnees.Any())
             {

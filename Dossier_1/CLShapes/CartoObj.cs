@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace CLShapes
+namespace MyCartographyObjects
 {
     public abstract class CartoObj : IIsPointClose
     {

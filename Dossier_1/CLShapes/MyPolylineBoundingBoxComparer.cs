@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MathFunctions;
 
-namespace CLShapes
+namespace MyCartographyObjects
 {
     public class MyPolylineBoundingBoxComparer : IComparer<Polyline>
     {
+        #region METHODES
         public int Compare(Polyline x, Polyline y)
         {
             return BoundingBoxArea(x).CompareTo(BoundingBoxArea(y));
@@ -44,5 +45,6 @@ namespace CLShapes
 
             return area;
         }
+        #endregion
     }
 }
