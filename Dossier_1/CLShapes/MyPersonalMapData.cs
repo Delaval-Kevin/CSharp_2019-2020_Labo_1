@@ -17,7 +17,7 @@ namespace MyCartographyObjects
         private string _email;
         #endregion
 
-        #region Constructeurs
+        #region PROPRIETES
         public string Email
         {
             get { return _email; }
@@ -35,6 +35,10 @@ namespace MyCartographyObjects
             get { return _prenom; }
             set { _prenom = value; }
         }
+        #endregion
+
+        #region CONSTRUCTEURS
+
         #endregion
 
         #region METHODES

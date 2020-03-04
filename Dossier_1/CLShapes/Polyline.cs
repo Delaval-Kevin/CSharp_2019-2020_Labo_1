@@ -44,8 +44,10 @@ namespace MyCartographyObjects
 
 
         #region CONSTRUCTEURS
+        //Constructeur par défaut
         public Polyline() : this(null, Colors.Black, 1) { }
 
+        //Constructeur d'initialisation
         public Polyline(Coordonnees coordonnees, Color couleur, int epaisseur)
         {
             Coordonnees = new List<Coordonnees>();
@@ -84,6 +86,7 @@ namespace MyCartographyObjects
             Console.WriteLine(this.ToString());
         }
 
+        //Vérifie si la coordonnée reçue en paramètre est proche de la Polyline selon la précisoin
         public override bool IsPointClose(Coordonnees coorTmp, double precision)
         {
             if (!Coordonnees.Any())
@@ -122,6 +125,7 @@ namespace MyCartographyObjects
             return false;
         }
 
+        //Calcule la longueur totale des segments de la Polyline
         public double CalculLongueur()
         {
             double taille = 0;

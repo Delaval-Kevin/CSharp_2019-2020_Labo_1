@@ -10,6 +10,7 @@ namespace MathFunctions
     public  class MathUtil
     {
         #region METHODES
+        //Calcul la distance entre 2 points
         public static double Dist2Points(double x1, double y1, double x2, double y2)
         {
             double x = x2 - x1;
@@ -17,6 +18,7 @@ namespace MathFunctions
             return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
         }
 
+        //Calcule la distance entre un point et un segment de droite
         public static double DistPointSeg(double x1, double y1, double x2, double y2, double x0, double y0)
         {
             double A = x0 - x1;

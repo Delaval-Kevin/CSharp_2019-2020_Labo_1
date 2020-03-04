@@ -23,8 +23,10 @@ namespace MyCartographyObjects
 
 
         #region CONSTRUCTEURS
+        //Constructeur par défaut
         public POI() : this(50.620796, 5.581418, "HEPL") { }
 
+        //Constructeur d'initialisation
         public POI(double latitude, double longitude, string description) : base(latitude, longitude)
         {
             Description = description;

@@ -28,8 +28,10 @@ namespace MyCartographyObjects
         #endregion
 
         #region CONSTRUCTEURS
+        //Constructeur par défaut
         public BoundingBox() : this(new Coordonnees(0, 0), new Coordonnees(0, 0)) { }
 
+        //Constructeur d'initialisation
         public BoundingBox(Coordonnees cmin, Coordonnees cmax)
         {
             Min = cmin;

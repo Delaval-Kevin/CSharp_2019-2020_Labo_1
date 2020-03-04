@@ -12,8 +12,8 @@ namespace MyCartographyObjects
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;
-        private Color              _couleur_contour;
-        private Color              _couleur_remplissage;
+        private Color               _couleur_contour;
+        private Color               _couleur_remplissage;
         private double              _opacite;
         #endregion
 
@@ -51,8 +51,10 @@ namespace MyCartographyObjects
 
 
         #region CONSTRUCTEURS
+        //Constructeur par défaut
         public Polygon() : this(null, Colors.White, Colors.Black, 0) { }
 
+        //Constructeur d'initialisation
         public Polygon(Coordonnees coordonnees, Color couleurContour, Color couleurRemplissage, double opacite)
         {
             Coordonnees = new List<Coordonnees>();
@@ -93,6 +95,7 @@ namespace MyCartographyObjects
             Console.WriteLine(this.ToString());
         }
 
+        //Vérifie si la coordonnée reçue en paramètre est proche du Polygon selon la précisoin donnée
         public override bool IsPointClose(Coordonnees coorTmp, double precision)
         {
             if (!Coordonnees.Any())
@@ -143,6 +146,7 @@ namespace MyCartographyObjects
             return false;
         }
 
+        //Vérifie si le point est dans la BoundingBox
         public bool InBoundingBox(Coordonnees coorTmp)
         {
             double xMin, xMax, yMin, yMax;
