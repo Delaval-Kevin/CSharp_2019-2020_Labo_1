@@ -38,10 +38,20 @@ namespace MyCartographyObjects
         #endregion
 
         #region CONSTRUCTEURS
+        //Constructeur par défaut
+        public MyPersonalMapData() : this("Pas de nom", "Pas de prénom", "Pas d'e-mail") { }
 
+        //Constructeur d'initialisation
+        public MyPersonalMapData(string nom, string prenom, string email)
+        {
+            Nom = nom;
+            Prenom = prenom;
+            Email = email;
+        }
         #endregion
 
         #region METHODES
+        //Sauvegarde l'objet 'MyPersonalMapData' dans un fichier 
         private static void Save(MyPersonalMapData jbc, string filename)
         {
             BinaryFormatter binFormat = new BinaryFormatter();
@@ -50,6 +60,8 @@ namespace MyCartographyObjects
                 binFormat.Serialize(fStream, jbc);
             }
         }
+
+        //Charge l'objet 'MyPersonalMapData' dans un fichier 
         private static void Load(string filename)
         {
             BinaryFormatter binFormat = new BinaryFormatter();

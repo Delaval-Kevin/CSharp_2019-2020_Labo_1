@@ -8,7 +8,7 @@ using MathFunctions;
 
 namespace MyCartographyObjects
 {
-    public class Polyline : CartoObj, IPointy, IComparable<Polyline>, IEquatable<Polyline>
+    public class Polyline : CartoObj, IPointy, ICartoObj, IComparable<Polyline>, IEquatable<Polyline>
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;

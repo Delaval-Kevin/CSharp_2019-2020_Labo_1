@@ -8,7 +8,7 @@ using MathFunctions;
 
 namespace MyCartographyObjects
 {
-    public class Polygon : CartoObj, IPointy
+    public class Polygon : CartoObj, IPointy, ICartoObj
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;
