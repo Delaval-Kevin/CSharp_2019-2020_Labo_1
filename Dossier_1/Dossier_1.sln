@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCartographyObjects", "CLS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathFunctions", "MathUtil\MathFunctions.csproj", "{0048F5D5-F2E7-461A-91E6-81C580A8A5A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelMap_Manager", "PersonelMap_Manager\PersonelMap_Manager.csproj", "{EB36A496-4CBC-4F40-A0BE-0749A2D4AC6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0048F5D5-F2E7-461A-91E6-81C580A8A5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0048F5D5-F2E7-461A-91E6-81C580A8A5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0048F5D5-F2E7-461A-91E6-81C580A8A5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB36A496-4CBC-4F40-A0BE-0749A2D4AC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB36A496-4CBC-4F40-A0BE-0749A2D4AC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB36A496-4CBC-4F40-A0BE-0749A2D4AC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB36A496-4CBC-4F40-A0BE-0749A2D4AC6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

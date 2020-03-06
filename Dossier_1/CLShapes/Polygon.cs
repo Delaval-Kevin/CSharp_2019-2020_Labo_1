@@ -8,6 +8,7 @@ using MathFunctions;
 
 namespace MyCartographyObjects
 {
+    [Serializable]
     public class Polygon : CartoObj, IPointy, ICartoObj
     {
         #region VARIABLES MEMBRES

@@ -45,6 +45,8 @@
     <Compile Include="CartoObj.cs" />
     <Compile Include="CartoComparer.cs" />
     <Compile Include="BoundingBox.cs" />
+    <Compile Include="BinaryFile.cs" />
+    <Compile Include="ICartoObj.cs" />
     <Compile Include="MyPersonalMapData.cs" />
     <Compile Include="MyPolylineBoundingBoxComparer.cs" />
     <Compile Include="IIsPointClose.cs" />

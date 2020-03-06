@@ -8,6 +8,7 @@ using MathFunctions;
 
 namespace MyCartographyObjects
 {
+    [Serializable]
     public class Polyline : CartoObj, IPointy, ICartoObj, IComparable<Polyline>, IEquatable<Polyline>
     {
         #region VARIABLES MEMBRES

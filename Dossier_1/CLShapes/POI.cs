@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCartographyObjects
 {
+    [Serializable]
     public class POI : Coordonnees, ICartoObj
     {
         #region VARIABLES MEMBRES

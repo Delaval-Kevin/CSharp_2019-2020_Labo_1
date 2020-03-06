@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
 namespace MyCartographyObjects
 {
+    [Serializable]
     public class MyPersonalMapData
     {
         #region VARIABLES
+        private string _path = @"Z:\Documents\2eme annee\C#\labo-phase-1-et-2-Head-Splitter\Dossier_1\Data\";
+        private string _dat = ".dat";
+
         private string _nom;
         private string _prenom;
         private string _email;
+        private ObservableCollection<ICartoObj> _liste;
         #endregion
 
         #region PROPRIETES
@@ -35,6 +39,12 @@ namespace MyCartographyObjects
             get { return _prenom; }
             set { _prenom = value; }
         }
+
+        public ObservableCollection<ICartoObj> Liste
+        {
+            get { return _liste; }
+            private set { _liste = value; }
+        }
         #endregion
 
         #region CONSTRUCTEURS
@@ -47,29 +57,25 @@ namespace MyCartographyObjects
             Nom = nom;
             Prenom = prenom;
             Email = email;
+            _liste = new ObservableCollection<ICartoObj>();
         }
         #endregion
 
         #region METHODES
         //Sauvegarde l'objet 'MyPersonalMapData' dans un fichier 
-        private static void Save(MyPersonalMapData jbc, string filename)
+        public void Save()
         {
-            BinaryFormatter binFormat = new BinaryFormatter();
-            using (Stream fStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                binFormat.Serialize(fStream, jbc);
-            }
+            string filename = _path + Nom + Prenom + _dat;
+            BinaryFile.Save(this,filename);
         }
 
         //Charge l'objet 'MyPersonalMapData' dans un fichier 
-        private static void Load(string filename)
+        public void Load()
         {
-            BinaryFormatter binFormat = new BinaryFormatter();
-            using (Stream fstream = File.OpenRead(filename))
-            {
-                MyPersonalMapData DataFromDisk = (MyPersonalMapData)binFormat.Deserialize(fstream);
-                Console.WriteLine("\nFichier bien chargé");
-            }
+            string filename = _path + Nom + Prenom + _dat;
+            MyPersonalMapData data = BinaryFile.Load(filename);
+            this.Email = data.Email;
+            this.Liste = data.Liste;
         }
         #endregion
     }
