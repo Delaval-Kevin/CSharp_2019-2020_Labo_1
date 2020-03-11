@@ -12,7 +12,7 @@ namespace MyCartographyObjects
     public class MyPersonalMapData
     {
         #region VARIABLES
-        private string _path = @"Z:\Documents\2eme annee\C#\labo-phase-1-et-2-Head-Splitter\Dossier_1\Data\";
+        private string _path = @"C:\Users\delav\Documents\2eme annee\C#\labo-phase-1-et-2-Head-Splitter\Dossier_1\Data\";
         private string _dat = ".dat";
 
         private string _nom;
