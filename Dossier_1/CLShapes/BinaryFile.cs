@@ -18,7 +18,7 @@ namespace MyCartographyObjects
             BinaryFormatter binFormat = new BinaryFormatter();
             using (Stream fStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                binFormat.Serialize(fStream, myData);
+                binFormat.Serialize(fStream, myData); 
             }
         }
 
