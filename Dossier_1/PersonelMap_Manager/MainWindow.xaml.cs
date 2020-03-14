@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyCartographyObjects;
 
 namespace PersonelMap_Manager
 {
@@ -19,36 +20,42 @@ namespace PersonelMap_Manager
     {
         IPageChange currentControl;
 
-
+        #region CONSTRUCTEURS
         public MainWindow()
         {
             InitializeComponent();
             loadPageLogin();
         }
+        #endregion
 
-        private void MainWindow_OnPageChange(int obj)
+        #region METHODES
+        //Fonction pour switcher entre les pages
+        private void MainWindow_OnPageChange(int obj, MyPersonalMapData user)
         {
             switch (obj)
             {
-                case 1: loadPagePrincipal(); break; // si on vient de la page 1 on va vers la page 2
-                case 2: loadPageLogin(); break; // si on vient de la page 2 on va vers la page 1
+                case 1: loadPageLogin(); break; // si on vient de la page "Principal" on va vers la "page Login"
+                case 2: loadPagePrincipal(user); break; // si on vient de la "Login" on va vers la page "Principal"
             }
         }
 
-        public void loadPagePrincipal()
-        {
-            currentControl = new PagePrincipal();
-            this.MonControle.Content = currentControl;
-
-            currentControl.pageChange += MainWindow_OnPageChange;
-        }
-
+        //Fonction de chargement pour la page "Login"
         public void loadPageLogin()
         {
             currentControl = new PageLogin();
-            this.MonControle.Content = currentControl;
+            this.MonControle.Content = currentControl; //Affiche la nouvelle page 'Login'
 
-            currentControl.pageChange += MainWindow_OnPageChange;
+            currentControl.pageChange += MainWindow_OnPageChange; //On s'abonne à l'évènement 'pageChange'
         }
+
+        //Fonction de chargement pour la page "Principal"
+        public void loadPagePrincipal(MyPersonalMapData user)
+        {
+            currentControl = new PagePrincipal(user);
+            this.MonControle.Content = currentControl; //Affiche la nouvelle page 'Principal'
+
+            currentControl.pageChange += MainWindow_OnPageChange; //On s'abonne à l'évènement 'pageChange'
+        }
+        #endregion
     }
 }

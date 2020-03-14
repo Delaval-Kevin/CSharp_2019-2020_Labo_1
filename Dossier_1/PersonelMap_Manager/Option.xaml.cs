@@ -14,14 +14,30 @@ using System.Windows.Shapes;
 
 namespace PersonelMap_Manager
 {
-    /// <summary>
-    /// Interaction logic for Option.xaml
-    /// </summary>
     public partial class Option : Window
     {
+        #region CONSTRUCTEURS
         public Option()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region BOUTONS
+        private void OK_Button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Apply_Button(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Cancel_Button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }

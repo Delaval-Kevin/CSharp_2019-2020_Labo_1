@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonelMap_Manager"
         mc:Ignorable="d"
-        Title="About Box" Height="250" Width="400"
+        Title="About Personel Map Manager" Height="250" Width="400"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -13,12 +13,14 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="ABOUT" FontSize="20" FontWeight="Bold" TextDecorations="Underline" Margin="0,20,0,0" Foreground="#FFF7F5F5" />
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" >
-            Projet C# - Personel Map Manager<LineBreak/><LineBreak/>
-            Fait par Delaval Kevin<LineBreak/><LineBreak/>
-            Dernière mise à jour le 12/03/2020
+    <Grid Margin="0">
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Personel Map Manager" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Margin="20,20,0,0" Foreground="#FFF7F5F5" />
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="0,30,0,0" >
+            Project  C#<LineBreak/><LineBreak/>
+            © 2020 Delaval Kevin<LineBreak/>
+            All rights reserved<LineBreak/><LineBreak/>
+            Last update 12/03/2020
+
         </TextBlock>
     </Grid>
 </Window>

@@ -14,13 +14,13 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Connexion à PersonelMap_Manager" Margin="0,0,0,20" FontSize="20"/>
+        <Label Content="Connection to Personel Map Manager" Margin="0,0,0,20" FontSize="20"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
-            <Label Content="Prénom :" Width="69" HorizontalAlignment="Left"/>
-            <TextBox Width="177" Margin="0,0,0,50"/>
-            <Label Content="Nom :" Width="69" HorizontalAlignment="Left"/>
-            <TextBox Width="177"/>
-            <Button Content="Valider" Width="91.667" RenderTransformOrigin="0.494,0.545" Margin="0,20,0,0" BorderBrush="#FF4F367C" Background="#FF4F367C" Click="Button_Click"/>
+            <Label Content="First name :" Width="75" HorizontalAlignment="Left" Margin="-4,0,0,0"/>
+            <TextBox x:Name="FirstNameBox" Width="177" Margin="0,0,0,50" MouseEnter="MouseEnter_Event"/>
+            <Label Content="Last name :" Width="75" HorizontalAlignment="Left" Margin="-4,0,0,0"/>
+            <TextBox x:Name="LastNameBox" Width="177" MouseEnter="MouseEnter_Event"/>
+            <Button Content="Submit" Width="91.667" RenderTransformOrigin="0.494,0.545" Margin="0,20,0,0" BorderBrush="#FF4F367C" Background="#FF4F367C" Click="Submit_Button"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

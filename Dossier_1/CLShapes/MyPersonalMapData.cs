@@ -51,7 +51,10 @@ namespace MyCartographyObjects
         //Constructeur par défaut
         public MyPersonalMapData() : this("Pas de nom", "Pas de prénom", "Pas d'e-mail") { }
 
-        //Constructeur d'initialisation
+        //Constructeur d'initialisation partiel
+        public MyPersonalMapData(string nom, string prenom) : this(nom, prenom, "Pas d'e-mail") { }
+
+        //Constructeur d'initialisation complet
         public MyPersonalMapData(string nom, string prenom, string email)
         {
             Nom = nom;

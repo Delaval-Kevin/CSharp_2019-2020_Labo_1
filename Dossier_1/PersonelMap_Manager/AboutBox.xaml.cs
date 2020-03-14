@@ -14,14 +14,13 @@ using System.Windows.Shapes;
 
 namespace PersonelMap_Manager
 {
-    /// <summary>
-    /// Interaction logic for AboutBox.xaml
-    /// </summary>
     public partial class AboutBox : Window
     {
+        #region CONSTRUCTEURS
         public AboutBox()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

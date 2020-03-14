@@ -11,37 +11,37 @@
         <StackPanel VerticalAlignment="Top" DockPanel.Dock="Top">
             <Menu>
                 <MenuItem Header="File">
-                    <MenuItem Header="Open">
+                    <MenuItem Header="Open" Click="Open_Button">
 
                     </MenuItem>
-                    <MenuItem Header="Save">
+                    <MenuItem Header="Save" Click="Save_Button">
 
                     </MenuItem>
                     <MenuItem Header="POI">
-                        <MenuItem Header="Import">
+                        <MenuItem Header="Import" Click="POI_Import_Button">
 
                         </MenuItem>
-                        <MenuItem Header="Export">
+                        <MenuItem Header="Export" Click="POI_Export_Button">
 
                         </MenuItem>
                     </MenuItem>
                     <MenuItem Header="Trajet">
-                        <MenuItem Header="Import">
+                        <MenuItem Header="Import" Click="Trajet_Import_Button">
 
                         </MenuItem>
-                        <MenuItem Header="Export">
+                        <MenuItem Header="Export" Click="Trajet_Export_Button">
 
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="Exit">
+                    <MenuItem Header="Exit" Click="Exit_Button">
 
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Tools">
-                    <MenuItem Header="Option">
+                    <MenuItem x:Name="OptionButton" Header="Option" Click="Option_Button">
 
                     </MenuItem>
-                    <MenuItem Header="About box">
+                    <MenuItem x:Name="AboutBoxButton" Header="About box" Click="About_Box_Button">
 
                     </MenuItem>
                 </MenuItem>
@@ -59,7 +59,9 @@
         </StackPanel>
         <StackPanel  VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
             <StatusBar>
-                
+                <StatusBarItem Height="22">
+                    <TextBlock x:Name="StatBar"/>
+                </StatusBarItem>
             </StatusBar>
         </StackPanel>
         <Grid>
