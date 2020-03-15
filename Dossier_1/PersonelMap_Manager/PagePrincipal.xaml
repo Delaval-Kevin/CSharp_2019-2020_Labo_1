@@ -10,50 +10,33 @@
     <DockPanel>
         <StackPanel VerticalAlignment="Top" DockPanel.Dock="Top">
             <Menu>
+                <Image Source="C:/Users/delav/Documents/2eme annee/C#/labo-phase-1-et-2-Head-Splitter/Dossier_1/Data/logo.png" Height="45" Width="45"/>
                 <MenuItem Header="File">
-                    <MenuItem Header="Open" Click="Open_Button">
-
-                    </MenuItem>
-                    <MenuItem Header="Save" Click="Save_Button">
-
-                    </MenuItem>
+                    <MenuItem Header="Open" Click="Open_Button"/>
+                    <MenuItem Header="Save" Click="Save_Button"/>
                     <MenuItem Header="POI">
-                        <MenuItem Header="Import" Click="POI_Import_Button">
-
-                        </MenuItem>
-                        <MenuItem Header="Export" Click="POI_Export_Button">
-
-                        </MenuItem>
+                        <MenuItem Header="Import" Click="POI_Import_Button"/>
+                        <MenuItem Header="Export" Click="POI_Export_Button"/>
                     </MenuItem>
                     <MenuItem Header="Trajet">
-                        <MenuItem Header="Import" Click="Trajet_Import_Button">
-
-                        </MenuItem>
-                        <MenuItem Header="Export" Click="Trajet_Export_Button">
-
-                        </MenuItem>
+                        <MenuItem Header="Import" Click="Trajet_Import_Button"/>
+                        <MenuItem Header="Export" Click="Trajet_Export_Button"/>
                     </MenuItem>
-                    <MenuItem Header="Exit" Click="Exit_Button">
-
-                    </MenuItem>
+                    <MenuItem Header="Exit" Click="Exit_Button"/>
                 </MenuItem>
                 <MenuItem Header="Tools">
-                    <MenuItem x:Name="OptionButton" Header="Option" Click="Option_Button">
-
-                    </MenuItem>
-                    <MenuItem x:Name="AboutBoxButton" Header="About box" Click="About_Box_Button">
-
-                    </MenuItem>
+                    <MenuItem x:Name="OptionButton" Header="Option" Click="Option_Button"/>
+                    <MenuItem x:Name="AboutBoxButton" Header="About box" Click="About_Box_Button"/>
                 </MenuItem>
             </Menu>
             <ToolBar ToolBarTray.IsLocked="True">
-                <RadioButton Content="Select" IsChecked="True"/>
-                <RadioButton Content="Delete"/>
-                <RadioButton Content="Add"/>
+                <RadioButton Content="Select" IsChecked="True" Checked="Select_Checked"/>
+                <RadioButton Content="Delete" Checked="Delete_Checked"/>
+                <RadioButton Content="Add" Checked="Add_Checked"/>
                 <ComboBox Width="120">
-                    <ComboBoxItem Content="POI"/>
-                    <ComboBoxItem Content="Polyline"/>
-                    <ComboBoxItem Content="Polygone"/>
+                    <ComboBoxItem x:Name="POI_Box" Content="POI"/>
+                    <ComboBoxItem x:Name="Polyline_Box" Content="Polyline"/>
+                    <ComboBoxItem x:Name="Polygone_Box" Content="Polygone"/>
                 </ComboBox>
             </ToolBar>
         </StackPanel>
@@ -72,6 +55,7 @@
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="5"/>
             <m:Map Mode="Aerialwithlabels" Grid.Column="3" CredentialsProvider="AqCPTbf4SXq_bvU9_0HXSUxb97y3qFpAfTNpPpuEAP1ODt2YpkGC-asnTneX8Aev"/>
+
         </Grid>
     </DockPanel>
 </UserControl>

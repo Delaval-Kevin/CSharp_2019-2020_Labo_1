@@ -58,7 +58,7 @@ namespace PersonelMap_Manager
             {
                 if(_errorFN == false && _errorLN == false)
                 {
-                    MyPersonalMapData user = new MyPersonalMapData(FirstNameBox.Text, LastNameBox.Text);
+                    MyPersonalMapData user = new MyPersonalMapData(LastNameBox.Text, FirstNameBox.Text);
 
                     try
                     {
@@ -72,6 +72,7 @@ namespace PersonelMap_Manager
 
                         if (ret == MessageBoxResult.Yes)
                         {
+                            user.Save();
                             pageChange?.Invoke(2, user);
                         }
                     }
