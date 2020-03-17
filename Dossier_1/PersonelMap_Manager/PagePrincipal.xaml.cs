@@ -31,7 +31,12 @@ namespace PersonelMap_Manager
         {
             InitializeComponent();
            
-            _user = user; 
+            _user = user;
+          //  _user.Liste.Add(new POI());
+          //  _user.Liste.Add(new POI(12.21,125.21,"zefezf"));
+          //  _user.Liste.Add(new POI(11,111,"test"));
+
+            ListeCoo.ItemsSource = _user.Liste;
             StatBar.Text = "User connected : " + _user.Nom + " " + _user.Prenom; //Affichage dans la StatusBar
         }
         #endregion
@@ -73,9 +78,9 @@ namespace PersonelMap_Manager
                 _user.Save();
                 StatBar.Text = "User " + _user.Nom + " " + _user.Prenom + " is saved"; //Affichage dans la StatusBar
             }
-            catch(Exception)
+            catch(Exception exc)//"An error occurred while saving the profile"
             {
-                Window error = new ErrorWindow("An error occurred while saving the profile");
+                Window error = new ErrorWindow(exc.Message);
                 error.ShowDialog(); //bloque la page 
             }
         }
@@ -120,6 +125,12 @@ namespace PersonelMap_Manager
         private void Add_Checked(object sender, RoutedEventArgs e)
         {
 
+        }
+        
+        //Fonction qui au double click sur la carte permet d'ajoutr un point
+        private void Map_Selection(object sender, MouseButtonEventArgs e)
+        {
+            
         }
         #endregion
     }

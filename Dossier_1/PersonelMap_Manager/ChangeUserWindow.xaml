@@ -12,7 +12,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Icon="logo2.png">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="28.29,56.113,0,0" TextWrapping="Wrap" Text="Enter the first name :" VerticalAlignment="Top"/>
         <TextBox x:Name="firstName" HorizontalAlignment="Left" Height="23" Margin="151.091,52.507,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>

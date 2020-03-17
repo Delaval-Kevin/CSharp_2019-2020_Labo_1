@@ -48,9 +48,9 @@ namespace PersonelMap_Manager
                 _user.Load();
                 this.Close();
             }
-            catch(Exception exc)
+            catch(Exception)
             {
-                Window error = new ErrorWindow(exc.Message);
+                Window error = new ErrorWindow("An error occurred while loading the profile");
                 error.ShowDialog(); //bloque la page 
             }
         }

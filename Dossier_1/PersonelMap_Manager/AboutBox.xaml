@@ -12,7 +12,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" Icon="logo2.png">
     <Grid Margin="0">
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Personel Map Manager" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Margin="20,20,0,0" Foreground="#FFF7F5F5" />
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="0,30,0,0" >

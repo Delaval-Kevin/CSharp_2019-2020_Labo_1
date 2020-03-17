@@ -7,6 +7,7 @@ using MathFunctions;
 
 namespace MyCartographyObjects
 {
+    [Serializable]
     public class Coordonnees : CartoObj
     {
         #region VARIABLES MEMBRES

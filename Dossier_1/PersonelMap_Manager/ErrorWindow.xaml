@@ -12,7 +12,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Icon="logo2.png">
     <Grid>
 
         <Image Source="C:/Users/delav/Documents/2eme annee/C#/labo-phase-1-et-2-Head-Splitter/Dossier_1/Data/Warning.png" Margin="20.282,21.549,300.422,72.253" />

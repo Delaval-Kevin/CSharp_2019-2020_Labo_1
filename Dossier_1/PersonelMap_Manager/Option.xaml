@@ -13,7 +13,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner" Icon="logo2.png">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="33,34,0,0" TextWrapping="Wrap" Text="Option" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" TextDecorations="Underline"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,82.5,0,0" TextWrapping="Wrap" Text="Change file path : " VerticalAlignment="Top"/>
