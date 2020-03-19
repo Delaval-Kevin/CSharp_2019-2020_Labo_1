@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
 {
@@ -52,6 +52,8 @@ namespace MyCartographyObjects
         }
 
         public abstract bool IsPointClose(Coordonnees coorTmp, double precision);
+
+        public abstract bool IsPointClose(Location coorTmp, double precision);
 
         #endregion
     }

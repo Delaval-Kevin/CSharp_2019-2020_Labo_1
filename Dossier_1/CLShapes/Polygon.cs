@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using MathFunctions;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
 {
@@ -147,8 +148,15 @@ namespace MyCartographyObjects
             return false;
         }
 
-        //Vérifie si le point est dans la BoundingBox
-        public bool InBoundingBox(Coordonnees coorTmp)
+        //Vérifie si la location reçue en paramètre est proche du Polygon selon la précisoin donnée
+        public override bool IsPointClose(Location locTmp, double precision)
+        {
+            Coordonnees coorTmp = new Coordonnees(locTmp.Latitude, locTmp.Longitude);
+
+            return this.IsPointClose(coorTmp, precision);
+        }
+            //Vérifie si le point est dans la BoundingBox
+            public bool InBoundingBox(Coordonnees coorTmp)
         {
             double xMin, xMax, yMin, yMax;
 

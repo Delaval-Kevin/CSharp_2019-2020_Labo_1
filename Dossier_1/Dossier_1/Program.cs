@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using MyCartographyObjects;
-
+using Microsoft.Maps.MapControl.WPF;
 
 namespace Dossier_1
 {
@@ -13,33 +13,6 @@ namespace Dossier_1
     {
         static void Main(string[] args)
         {
-            /*Coordonnees C = new Coordonnees(100, 200);
-
-            POI P = new POI("LOUVEIGNE", 200.254411536, 50.221452);
-            POI P1 = new POI();
-            Console.WriteLine(C.ToString());
-
-            Console.WriteLine(P.ToString());
-            Console.WriteLine(P1.ToString());
-
-            Coordonnees coordonnees = new Coordonnees(123.3, 15);
-
-            Console.WriteLine(coordonnees.ToString());
-
-            POI poi = new POI();
-
-            Console.WriteLine(poi.ToString());
-
-            Polyline polyline = new Polyline(coordonnees, Colors.Black, 12);
-            polyline.Coordonnees.Add(new Coordonnees(12, 123));
-            Console.WriteLine(polyline.ToString());
-
-            Polygon polygon = new Polygon();
-            Console.WriteLine(polygon.ToString());
-
-            Console.ReadKey();
-            */
-
             Coordonnees coordonnees = new Coordonnees(1, 1);
 
 
@@ -49,8 +22,9 @@ namespace Dossier_1
             polygon.Coordonnees.Add(new Coordonnees(6, 1));
             Console.WriteLine(polygon.ToString());
 
-            Console.WriteLine("{0}", polygon.IsPointClose(new Coordonnees(3, 1), 1));
-            Console.WriteLine("{0}", polygon.NbPoints);
+            Console.WriteLine("Le point est il proche selon la precision : {0}", polygon.IsPointClose(new Coordonnees(3, 1), 1));
+            Console.WriteLine("Le point est il proche selon la precision : {0}", polygon.IsPointClose(new Coordonnees(8, 3), 1));
+            Console.WriteLine("Nombre de point du polygon : {0}", polygon.NbPoints);
             POI poi = new POI();
 
             Polygon polygon1 = new Polygon(new Coordonnees(2, 2), Colors.Black, Colors.Black, 1);
@@ -64,13 +38,10 @@ namespace Dossier_1
             polygon2.Coordonnees.Add(new Coordonnees(6, 1));
 
 
-
-
             polyline2.Coordonnees.Add(new Coordonnees(0, 0));
             polyline2.Coordonnees.Add(new Coordonnees(0, 1));
             polyline2.Coordonnees.Add(new Coordonnees(1, 1));
             polyline2.Coordonnees.Add(new Coordonnees(1, 0));
-
 
 
             polyline1.Coordonnees.Add(new Coordonnees(10, 0));
@@ -78,14 +49,18 @@ namespace Dossier_1
             polyline1.Coordonnees.Add(new Coordonnees(10, 10));
 
 
-
+            Console.WriteLine("\n\n polygon 1 : ");
             Console.WriteLine(polygon1.ToString());
+            Console.WriteLine("\n\n polygon 2 : ");
             Console.WriteLine(polygon2.ToString());
 
+            Console.WriteLine("\n\n polyline 1 : ");
             Console.WriteLine(polyline1.ToString());
+            Console.WriteLine("\n\n polyline 2 : ");
             Console.WriteLine(polyline2.ToString());
 
-            Console.WriteLine("{0}", polygon2.IsPointClose(new Coordonnees(1, 5), 1));
+            Console.WriteLine("Le point est il proche selon la precision : {0}", polygon2.IsPointClose(new Coordonnees(1, 5), 1));
+            Console.WriteLine("Le point est il proche selon la precision : {0}", polygon2.IsPointClose(new Coordonnees(5, 1), 1));
 
             List<CartoObj> ListCart = new List<CartoObj>();
 
@@ -96,7 +71,7 @@ namespace Dossier_1
             ListCart.Add(polygon1);
             ListCart.Add(poi);
 
-            Console.WriteLine("\n\n\nListe de CartoObj :");
+            Console.WriteLine("\n\n\n-- Liste de CartoObj --");
             foreach (CartoObj cart in ListCart)
             {
                 Console.WriteLine(cart.ToString());
@@ -107,7 +82,7 @@ namespace Dossier_1
             IP.Add(polyline2);
             IP.Add(polygon2);
             IP.Add(polyline1);
-            Console.WriteLine("\n\n\nListe de IPointy :");
+            Console.WriteLine("\n\n\n-- Liste de IPointy --");
             foreach (IPointy ip in IP)
             {
                 Console.WriteLine(ip.ToString());
@@ -117,11 +92,11 @@ namespace Dossier_1
             List<Polyline> t = new List<Polyline>();
 
             //    ListCart.Add(polygon1);
-            t.Add(polyline2);
-            //    ListCart.Add(polygon2);
             t.Add(polyline1);
+            //    ListCart.Add(polygon2);
+            t.Add(polyline2);
             //    ListCart.Add(new POI());
-            Console.WriteLine("\n\n\nListe de Polyline avant sort:");
+            Console.WriteLine("\n\n\n-- Liste de Polyline avant sort --");
             foreach (CartoObj cart in t)
             {
                 Console.WriteLine(cart.ToString());
@@ -129,7 +104,7 @@ namespace Dossier_1
 
             t.Sort();
 
-            Console.WriteLine("\n\n\nListe de Polyline apres sort:");
+            Console.WriteLine("\n\n\n-- Liste de Polyline apres sort --");
             foreach (CartoObj cart in t)
             {
                 Console.WriteLine(cart.ToString());
@@ -137,7 +112,7 @@ namespace Dossier_1
 
             MyPolylineBoundingBoxComparer mpoly = new MyPolylineBoundingBoxComparer();
 
-            Console.WriteLine("\n Tri par la longueur du bounding");
+            Console.WriteLine("\n\n\n-- Tri par la longueur du bounding --");
             t.Sort(mpoly);
 
             foreach (Polyline cart in t)
@@ -145,20 +120,21 @@ namespace Dossier_1
                 Console.WriteLine(cart.ToString());
             }
 
-            Console.WriteLine("\n Find");
+            Console.WriteLine("\n\n\n-- Find --");
             Console.WriteLine(t.Find(x => x.CalculLongueur() == 0));
 
 
-            Console.WriteLine("\n FindAll");
+            Console.WriteLine("\n\n\n-- FindAll --");
             List<Polyline> poly = t.FindAll(x => x.CalculLongueur() == 3);
             Affiche(poly);
 
 
-            Console.WriteLine("\n FindAll ISPointClose");
+            Console.WriteLine("\n\n\n-- FindAll ISPointClose --");
             poly = t.FindAll(x => x.IsPointClose(new Coordonnees(1, 0.5), 1));
             Affiche(poly);
 
-            Console.WriteLine("\n Compare CartoObj");
+            Console.WriteLine("\n\n\n-- Compare CartoObj --");
+            Console.WriteLine("\n-- UnSort --");
             CartoComparer carte = new CartoComparer();
             foreach (CartoObj obj in ListCart)
             {
@@ -166,6 +142,8 @@ namespace Dossier_1
                 Console.WriteLine(obj.ToString());
                 Console.WriteLine("----------------------------------------------------------");
             }
+
+            Console.WriteLine("\n\n-- Sort --");
             ListCart.Sort(carte);
             foreach (CartoObj obj in ListCart)
             {
@@ -175,15 +153,7 @@ namespace Dossier_1
             }
 
 
-
-
-
-
-
-
             Console.ReadKey();
-
-
 
         }
 

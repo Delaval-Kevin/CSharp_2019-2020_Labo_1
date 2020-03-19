@@ -21,11 +21,19 @@ namespace PersonelMap_Manager
         MyPersonalMapData _user;
         #endregion
 
+        #region PROPRIETES
+        public MyPersonalMapData User
+        {
+            get { return _user; }
+            set { _user = value; }
+        }
+        #endregion
+
         #region CONSTRUCTEURS
         public ChangeUserWindow(MyPersonalMapData user)
         {
             InitializeComponent();
-            _user = user;
+            User = user;
         }
         #endregion
 
@@ -43,9 +51,9 @@ namespace PersonelMap_Manager
             {
                 tmpUser.Load(); //Test s'il existe
 
-                _user.Nom = lastName.Text;
-                _user.Prenom = firstName.Text;
-                _user.Load();
+                User.Nom = lastName.Text;
+                User.Prenom = firstName.Text;
+                User.Load();
                 this.Close();
             }
             catch(Exception)

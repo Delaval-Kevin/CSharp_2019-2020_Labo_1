@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
 namespace MyCartographyObjects
 {
     [Serializable]
-    public class MyPersonalMapData
+    public class MyPersonalMapData : INotifyPropertyChanged
     {
         #region VARIABLES
         private string _path = @"C:\Users\delav\Documents\2eme annee\C#\labo-phase-1-et-2-Head-Splitter\Dossier_1\Data\";
-        private string _dat = ".dat";
+        private string _ext = ".dat";
 
         private string _nom;
         private string _prenom;
@@ -21,23 +22,89 @@ namespace MyCartographyObjects
         private ObservableCollection<ICartoObj> _liste;
         #endregion
 
+        #region EVENT
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
         #region PROPRIETES
         public string Email
         {
             get { return _email; }
-            set { _email = value; }
+            set
+            {
+                if (_email != value)
+                {
+                    _email = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                    }
+                }
+            }
+        }
+
+        public string Path
+        {
+            get { return _path; }
+            set
+            {
+                if (_path != value)
+                {
+                    _path = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Path"));
+                    }
+                }
+            }
+        }
+
+        public string Ext
+        {
+            get { return _ext; }
+            set
+            {
+                if (_ext != value)
+                {
+                    _ext = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Ext"));
+                    }
+                }
+            }
         }
 
         public string Nom
         {
             get { return _nom; }
-            set { _nom = value; }
+            set
+            {
+                if (_nom != value)
+                {
+                    _nom = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Nom"));
+                    }
+                }
+            }
         }
 
         public string Prenom 
         {
             get { return _prenom; }
-            set { _prenom = value; }
+            set
+            {
+                if (_prenom != value)
+                {
+                    _prenom = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Prenom"));
+                    }
+                }
+            }
         }
 
         public ObservableCollection<ICartoObj> Liste
@@ -68,14 +135,14 @@ namespace MyCartographyObjects
         //Sauvegarde l'objet 'MyPersonalMapData' dans un fichier 
         public void Save()
         {
-            string filename = _path + Nom + Prenom + _dat;
+            string filename = Path + Nom + Prenom + Ext;
             BinaryFile.Save(this,filename);
         }
 
         //Charge l'objet 'MyPersonalMapData' dans un fichier 
         public void Load()
         {
-            string filename = _path + Nom + Prenom + _dat;
+            string filename = Path + Nom + Prenom + Ext;
             MyPersonalMapData data = BinaryFile.Load(filename);
             this.Email = data.Email;
             this.Liste = data.Liste;

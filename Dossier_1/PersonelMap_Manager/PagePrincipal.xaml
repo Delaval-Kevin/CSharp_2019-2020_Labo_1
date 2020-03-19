@@ -30,9 +30,9 @@
                 </MenuItem>
             </Menu>
             <ToolBar ToolBarTray.IsLocked="True">
-                <RadioButton Content="Select" IsChecked="True" Checked="Select_Checked"/>
-                <RadioButton Content="Delete" Checked="Delete_Checked"/>
-                <RadioButton Content="Add" Checked="Add_Checked"/>
+                <RadioButton x:Name="Select" Content="Select" IsChecked="True" Checked="Select_Checked"/>
+                <RadioButton x:Name="Delete" Content="Delete" Checked="Delete_Checked"/>
+                <RadioButton x:Name="Add" Content="Add" Checked="Add_Checked"/>
                 <ComboBox Width="120">
                     <ComboBoxItem x:Name="POI_Box" Content="POI" IsSelected="True"/>
                     <ComboBoxItem x:Name="Polyline_Box" Content="Polyline"/>
@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="5"/>
-            <m:Map Mode="Aerialwithlabels" Grid.Column="3" CredentialsProvider="AqCPTbf4SXq_bvU9_0HXSUxb97y3qFpAfTNpPpuEAP1ODt2YpkGC-asnTneX8Aev" MouseDoubleClick="Map_Selection"/>
+            <m:Map x:Name="map" Mode="Aerialwithlabels" Grid.Column="3" CredentialsProvider="AqCPTbf4SXq_bvU9_0HXSUxb97y3qFpAfTNpPpuEAP1ODt2YpkGC-asnTneX8Aev" MouseDoubleClick="Map_Selection"/>
             <DockPanel Grid.Column="0">
                 <ListBox x:Name="ListeCoo">
                 </ListBox>

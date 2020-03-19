@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MyCartographyObjects;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace PersonelMap_Manager
 {
@@ -26,18 +27,23 @@ namespace PersonelMap_Manager
         private MyPersonalMapData _user;
         #endregion
 
+        #region PROPRIETES
+        public MyPersonalMapData User
+        {
+            get { return _user; }
+            set { _user = value; }
+        }
+        #endregion
+
         #region CONSTRUCTEURS
         public PagePrincipal(MyPersonalMapData user)
         {
             InitializeComponent();
            
-            _user = user;
-          //  _user.Liste.Add(new POI());
-          //  _user.Liste.Add(new POI(12.21,125.21,"zefezf"));
-          //  _user.Liste.Add(new POI(11,111,"test"));
-
-            ListeCoo.ItemsSource = _user.Liste;
-            StatBar.Text = "User connected : " + _user.Nom + " " + _user.Prenom; //Affichage dans la StatusBar
+            User = user;
+            ListeCoo.ItemsSource = User.Liste;
+            AffichePin();
+            StatBar.Text = "User connected : " + User.Nom + " " + User.Prenom; //Affichage dans la StatusBar
         }
         #endregion
 
@@ -67,7 +73,7 @@ namespace PersonelMap_Manager
         {
             Window changeProf = new ChangeUserWindow(_user);
             changeProf.ShowDialog(); //bloque la page 
-            StatBar.Text = "User " + _user.Nom + " " + _user.Prenom + " is loaded"; //Affichage dans la StatusBar
+            StatBar.Text = "User " + User.Nom + " " + User.Prenom + " is loaded"; //Affichage dans la StatusBar
         }
 
         //Fonction pour sauvegarder le profil
@@ -76,7 +82,7 @@ namespace PersonelMap_Manager
             try
             {
                 _user.Save();
-                StatBar.Text = "User " + _user.Nom + " " + _user.Prenom + " is saved"; //Affichage dans la StatusBar
+                StatBar.Text = "User " + User.Nom + " " + User.Prenom + " is saved"; //Affichage dans la StatusBar
             }
             catch(Exception exc)//"An error occurred while saving the profile"
             {
@@ -126,11 +132,95 @@ namespace PersonelMap_Manager
         {
 
         }
-        
-        //Fonction qui au double click sur la carte permet d'ajoutr un point
+
+        //Fonction qui au double click sur la carte permet d'ajouter un point
         private void Map_Selection(object sender, MouseButtonEventArgs e)
         {
+            //Désactive l'action par défaut du double_click
+            e.Handled = true;
+
+            //Avoir la coordonée de la souris
+            Point point = e.GetPosition(map);
+
+            //Conversion de la souris en coordonnées
+            Location pinLocation = map.ViewportPointToLocation(point);
             
+            //La position du pin sur la carte
+            Pushpin pin = new Pushpin();
+            pin.Location = pinLocation;
+
+            if (Add.IsChecked == true)
+            {
+                POI TmpPoi = new POI(pinLocation.Latitude, pinLocation.Longitude, "");
+
+                Window text = new TextWindow(TmpPoi);
+                text.ShowDialog(); //bloque la page 
+
+                pin.Name = TmpPoi.Description;
+                pin.Tag = TmpPoi;
+
+                //Ajoute le pin a la carte
+                map.Children.Add(pin);
+
+                //Ajoute à la liste
+                User.Liste.Add(TmpPoi);
+            }
+
+            if (Delete.IsChecked == true)
+            {
+                for (int i=0 ;  i < User.Liste.Count() ; i++)
+                {
+
+                    if(User.Liste[i] is IIsPointClose)
+                    {
+                        IIsPointClose coo = User.Liste[i] as IIsPointClose;
+                        if (coo.IsPointClose(pinLocation, 0.5))
+                        {
+                            ICartoObj cooTmp = coo as ICartoObj;
+                            User.Liste.Remove(cooTmp);
+                            map.Children.RemoveAt(i);
+                        }
+                    }
+                }
+            }
+
+            if (Select.IsChecked == true)
+            {
+                foreach (Coordonnees coo in User.Liste)
+                {
+                    if (coo.IsPointClose(pinLocation, 0.5))
+                    {
+                        Window error = new ErrorWindow("OK");
+                        error.ShowDialog(); //bloque la page 
+                    }
+                }
+            }
+
+            //Recharge la liste
+            reloadList();
+        }
+        #endregion
+
+        #region METHODES
+        private void AffichePin()
+        {
+            foreach (Coordonnees coo in User.Liste)
+            {
+                Location pinLocation = new Location(coo.Latitude, coo.Longitude);
+
+                //Le pin a ajouter à la carte
+                Pushpin pin = new Pushpin();
+                pin.Location = pinLocation;
+
+                //Ajoute le pin a la carte
+                map.Children.Add(pin);
+            }
+        }
+
+        private void reloadList()
+        {
+            ListeCoo.ItemsSource = null;
+            ListeCoo.ItemsSource = User.Liste;
         }
         #endregion
     }

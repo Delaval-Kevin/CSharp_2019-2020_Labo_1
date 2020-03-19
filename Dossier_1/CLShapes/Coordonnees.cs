@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathFunctions;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
 {
@@ -54,6 +55,13 @@ namespace MyCartographyObjects
                 return true;
 
             return false;
+        }
+
+        public override bool IsPointClose(Location locTmp, double precision)
+        {
+            Coordonnees coorTmp = new Coordonnees(locTmp.Latitude, locTmp.Longitude);
+
+            return this.IsPointClose(coorTmp, precision);
         }
         #endregion
     }
