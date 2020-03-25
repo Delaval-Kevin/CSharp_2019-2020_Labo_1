@@ -25,12 +25,35 @@ namespace PersonelMap_Manager
         #region VARIABLES
         private bool _errorFN = false;
         private bool _errorLN = false;
+        private MyPersonalMapData _user;
+        #endregion
+
+        #region PROPRIETES
+        public MyPersonalMapData User
+        {
+            get { return _user; }
+            set { _user = value; }
+        }
+
+        public bool ErrorFN
+        {
+            get { return _errorFN; }
+            set { _errorFN = value; }
+        }
+
+        public bool ErrorLN
+        {
+            get { return _errorLN; }
+            set { _errorLN = value; }
+        }
         #endregion
 
         #region CONSTRUCTEURS
         public PageLogin()
         {
             InitializeComponent();
+            User = new MyPersonalMapData("Delaval", "Kevin");
+            CurrentStack.DataContext = User;
         }
         #endregion
 
@@ -39,31 +62,29 @@ namespace PersonelMap_Manager
         private void Submit_Button(object sender, RoutedEventArgs e)
         {
             //Vefification si la TextBox est vide 
-            if (FirstNameBox.Text.Length < 1 || LastNameBox.Text.Length < 1)
+            if (User.Prenom.Length < 1 || User.Nom.Length < 1)
             {
-                if (FirstNameBox.Text.Length < 1)
+                if (User.Prenom.Length < 1)
                 {
-                    FirstNameBox.Text = "Please enter your first name";
+                    User.Prenom = "Please enter your first name";
                     FirstNameBox.SetCurrentValue(ForegroundProperty, Brushes.Red);
-                    _errorFN = true;
+                    ErrorFN = true;
                 } 
-                if(LastNameBox.Text.Length < 1)
+                if(User.Nom.Length < 1)
                 {
-                    LastNameBox.Text = "Please enter your last name";
+                    User.Nom = "Please enter your last name";
                     LastNameBox.SetCurrentValue(ForegroundProperty, Brushes.Red);
-                    _errorLN = true;
+                    ErrorLN = true;
                 }
             }
             else
             {
-                if(_errorFN == false && _errorLN == false)
+                if(ErrorFN == false && ErrorLN == false)
                 {
-                    MyPersonalMapData user = new MyPersonalMapData(LastNameBox.Text, FirstNameBox.Text);
-
                     try
                     {
-                        user.Load();
-                        pageChange?.Invoke(2, user);
+                        User.Load();
+                        pageChange?.Invoke(2, User);
                     }
                     catch(Exception)
                     {
@@ -72,8 +93,8 @@ namespace PersonelMap_Manager
 
                         if (ret == MessageBoxResult.Yes)
                         {
-                            user.Save();
-                            pageChange?.Invoke(2, user);
+                            User.Save();
+                            pageChange?.Invoke(2, User);
                         }
                     }
                 }
@@ -87,17 +108,17 @@ namespace PersonelMap_Manager
         {
             TextBox tmp = sender as TextBox;
 
-            if (_errorFN == true && tmp == FirstNameBox)
+            if (ErrorFN == true && tmp == FirstNameBox)
             {
                 tmp.Text = "";
                 tmp.SetCurrentValue(ForegroundProperty, Brushes.WhiteSmoke);
-                _errorFN = false;
+                ErrorFN = false;
             }
-            if (_errorLN == true && tmp == LastNameBox)
+            if (ErrorLN == true && tmp == LastNameBox)
             {
                 tmp.Text = "";
                 tmp.SetCurrentValue(ForegroundProperty, Brushes.WhiteSmoke);
-                _errorLN = false;
+                ErrorLN = false;
             }
         }
         #endregion

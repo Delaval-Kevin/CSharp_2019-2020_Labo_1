@@ -11,35 +11,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MyCartographyObjects;
 
 namespace PersonelMap_Manager
 {
-    public partial class Option : Window
+    public partial class OptPOI : Window
     {
-        #region EVENEMENTS
-        public event Action<Color, Color> colorChange;
+        #region VARIABLES
+        private POI _poi;
+        #endregion
+
+        #region PROPRIETES
+        public POI Poi
+        {
+            get { return _poi; }
+            set { _poi = value; }
+        }
         #endregion
 
         #region CONSTRUCTEURS
-        public Option()
+        public OptPOI(POI poi)
         {
             InitializeComponent();
+            Poi = poi;
         }
         #endregion
 
         #region BOUTONS
         private void OK_Button(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void Apply_Button(object sender, RoutedEventArgs e)
-        {
-            colorChange?.Invoke(TextColor.Color, BackColor.Color);
-        }
-
-        private void Cancel_Button(object sender, RoutedEventArgs e)
-        {
+            Poi.Description = Desc.Text;
             this.Close();
         }
         #endregion

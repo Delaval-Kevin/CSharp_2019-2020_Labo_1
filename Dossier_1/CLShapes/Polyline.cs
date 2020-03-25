@@ -16,6 +16,7 @@ namespace MyCartographyObjects
         private List<Coordonnees>   _coordonnees;
         private Color               _couleur;
         private int                 _epaisseur;
+        private string              _description;
         #endregion
 
 
@@ -42,12 +43,21 @@ namespace MyCartographyObjects
         {
             get { return Coordonnees.Count; }
         }
+
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
         #endregion
 
 
         #region CONSTRUCTEURS
         //Constructeur par défaut
         public Polyline() : this(null, Colors.Black, 1) { }
+
+        //Constructeur d'initialisation
+        public Polyline(Coordonnees coordonnees) : this(coordonnees, Colors.Black, 1) { }
 
         //Constructeur d'initialisation
         public Polyline(Coordonnees coordonnees, Color couleur, int epaisseur)

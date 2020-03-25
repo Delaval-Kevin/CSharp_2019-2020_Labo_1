@@ -18,7 +18,7 @@ namespace MyCartographyObjects
 
 
         #region PROPRIETES
-        public double Latitude
+            public double Latitude
         {
             get{ return _latitude; }
             set{ _latitude = value; }

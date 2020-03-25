@@ -22,8 +22,8 @@
         <Button Content="OK" HorizontalAlignment="Left" Margin="202.5,352,0,0" VerticalAlignment="Top" Width="90" Click="OK_Button"/>
         <Button Content="Apply" HorizontalAlignment="Left" Margin="103.5,352,0,0" VerticalAlignment="Top" Width="75" Click="Apply_Button"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="315,352,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Button"/>
-        <materialDesign:ColorPicker HorizontalAlignment="Left" Margin="111,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,-0.85" Height="63.9" Width="268" HueSliderPosition="Top"/>
-        <materialDesign:ColorPicker HorizontalAlignment="Left" Margin="111,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,-0.85" Height="63.9" Width="268" HueSliderPosition="Top"/>
+        <materialDesign:ColorPicker x:Name="TextColor" HorizontalAlignment="Left" Margin="111,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,-0.85" Height="63.9" Width="268" HueSliderPosition="Top"/>
+        <materialDesign:ColorPicker x:Name="BackColor" HorizontalAlignment="Left" Margin="111,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,-0.85" Height="63.9" Width="268" HueSliderPosition="Top"/>
 
 
     </Grid>

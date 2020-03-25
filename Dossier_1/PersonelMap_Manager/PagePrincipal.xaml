@@ -49,13 +49,13 @@
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="400" MinWidth="100" Width="200"/>
+                <ColumnDefinition MaxWidth="500" MinWidth="150" Width="200"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="5"/>
             <m:Map x:Name="map" Mode="Aerialwithlabels" Grid.Column="3" CredentialsProvider="AqCPTbf4SXq_bvU9_0HXSUxb97y3qFpAfTNpPpuEAP1ODt2YpkGC-asnTneX8Aev" MouseDoubleClick="Map_Selection"/>
-            <DockPanel Grid.Column="0">
+            <DockPanel Name="ListDock" Grid.Column="0">
                 <ListBox x:Name="ListeCoo">
                 </ListBox>
             </DockPanel>

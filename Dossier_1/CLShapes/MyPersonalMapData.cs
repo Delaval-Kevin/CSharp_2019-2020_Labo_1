@@ -6,11 +6,12 @@ using System.Text;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace MyCartographyObjects
 {
     [Serializable]
-    public class MyPersonalMapData : INotifyPropertyChanged
+    public class MyPersonalMapData //: INotifyPropertyChanged
     {
         #region VARIABLES
         private string _path = @"C:\Users\delav\Documents\2eme annee\C#\labo-phase-1-et-2-Head-Splitter\Dossier_1\Data\";
@@ -22,9 +23,17 @@ namespace MyCartographyObjects
         private ObservableCollection<ICartoObj> _liste;
         #endregion
 
-        #region EVENT
+        /*#region EVENT
         public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyname = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
+        #endregion*/
 
         #region PROPRIETES
         public string Email
@@ -35,10 +44,10 @@ namespace MyCartographyObjects
                 if (_email != value)
                 {
                     _email = value;
-                    if (PropertyChanged != null)
+                   /* if (PropertyChanged != null)
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Email"));
-                    }
+                    }*/
                 }
             }
         }
@@ -51,10 +60,10 @@ namespace MyCartographyObjects
                 if (_path != value)
                 {
                     _path = value;
-                    if (PropertyChanged != null)
+                    /*if (PropertyChanged != null)
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Path"));
-                    }
+                    }*/
                 }
             }
         }
@@ -67,10 +76,10 @@ namespace MyCartographyObjects
                 if (_ext != value)
                 {
                     _ext = value;
-                    if (PropertyChanged != null)
+                    /*if (PropertyChanged != null)
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Ext"));
-                    }
+                    }*/
                 }
             }
         }
@@ -83,10 +92,10 @@ namespace MyCartographyObjects
                 if (_nom != value)
                 {
                     _nom = value;
-                    if (PropertyChanged != null)
+                    /*if (PropertyChanged != null)
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Nom"));
-                    }
+                    }*/
                 }
             }
         }
@@ -99,10 +108,10 @@ namespace MyCartographyObjects
                 if (_prenom != value)
                 {
                     _prenom = value;
-                    if (PropertyChanged != null)
+                    /*if (PropertyChanged != null)
                     {
                         PropertyChanged(this, new PropertyChangedEventArgs("Prenom"));
-                    }
+                    }*/
                 }
             }
         }
@@ -116,10 +125,10 @@ namespace MyCartographyObjects
 
         #region CONSTRUCTEURS
         //Constructeur par défaut
-        public MyPersonalMapData() : this("Pas de nom", "Pas de prénom", "Pas d'e-mail") { }
+        public MyPersonalMapData() : this("", "", "") { }
 
         //Constructeur d'initialisation partiel
-        public MyPersonalMapData(string nom, string prenom) : this(nom, prenom, "Pas d'e-mail") { }
+        public MyPersonalMapData(string nom, string prenom) : this(nom, prenom, "") { }
 
         //Constructeur d'initialisation complet
         public MyPersonalMapData(string nom, string prenom, string email)

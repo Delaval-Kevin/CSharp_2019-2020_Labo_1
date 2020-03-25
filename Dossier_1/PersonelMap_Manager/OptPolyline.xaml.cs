@@ -10,38 +10,37 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MyCartographyObjects;
 
 namespace PersonelMap_Manager
 {
-    public partial class TextWindow : Window
+    public partial class OptPolyline : Window
     {
         #region VARIABLES
-        private POI _poi;
-
+        private Polyline _polyline;
         #endregion
 
         #region PROPRIETES
-        public POI Poi
+        public Polyline Poly
         {
-            get { return _poi; }
-            set { _poi = value; }
+            get { return _polyline; }
+            set { _polyline = value; }
         }
         #endregion
 
         #region CONSTRUCTEURS
-        public TextWindow(POI poi)
+        public OptPolyline(Polyline tmpPoly)
         {
             InitializeComponent();
-            Poi = poi;
+            Poly = tmpPoly;
         }
         #endregion
 
         #region BOUTONS
         private void OK_Button(object sender, RoutedEventArgs e)
         {
-            Poi.Description = Desc.Text;
+            Poly.Description = Desc.Text;
+            Poly.Couleur = Col.Color;
             this.Close();
         }
         #endregion
