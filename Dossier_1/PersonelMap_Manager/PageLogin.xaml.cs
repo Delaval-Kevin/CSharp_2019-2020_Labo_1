@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MyCartographyObjects;
+using System.Windows.Shapes;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Navigation;
+using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 namespace PersonelMap_Manager
 {
     public partial class PageLogin : UserControl, IPageChange
     {
         #region EVENEMENTS
-        public event Action<int, MyPersonalMapData> pageChange;
+        public event Action<int, MyPersonalMapData> PageChange;
         #endregion
 
         #region VARIABLES
@@ -84,7 +84,7 @@ namespace PersonelMap_Manager
                     try
                     {
                         User.Load();
-                        pageChange?.Invoke(2, User);
+                        PageChange?.Invoke(2, User);
                     }
                     catch(Exception)
                     {
@@ -94,7 +94,7 @@ namespace PersonelMap_Manager
                         if (ret == MessageBoxResult.Yes)
                         {
                             User.Save();
-                            pageChange?.Invoke(2, User);
+                            PageChange?.Invoke(2, User);
                         }
                     }
                 }

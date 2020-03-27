@@ -18,9 +18,13 @@
                         <MenuItem Header="Import" Click="POI_Import_Button"/>
                         <MenuItem Header="Export" Click="POI_Export_Button"/>
                     </MenuItem>
-                    <MenuItem Header="Trajet">
-                        <MenuItem Header="Import" Click="Trajet_Import_Button"/>
-                        <MenuItem Header="Export" Click="Trajet_Export_Button"/>
+                    <MenuItem Header="Polyline">
+                        <MenuItem Header="Import" Click="Polyline_Import_Button"/>
+                        <MenuItem Header="Export" Click="Polyline_Export_Button"/>
+                    </MenuItem>
+                    <MenuItem Header="Polygon">
+                        <MenuItem Header="Import" Click="Polygon_Import_Button"/>
+                        <MenuItem Header="Export" Click="Polygon_Export_Button"/>
                     </MenuItem>
                     <MenuItem Header="Exit" Click="Exit_Button"/>
                 </MenuItem>
@@ -30,10 +34,10 @@
                 </MenuItem>
             </Menu>
             <ToolBar ToolBarTray.IsLocked="True">
-                <RadioButton x:Name="Select" Content="Select" IsChecked="True" Checked="Select_Checked"/>
-                <RadioButton x:Name="Delete" Content="Delete" Checked="Delete_Checked"/>
-                <RadioButton x:Name="Add" Content="Add" Checked="Add_Checked"/>
-                <ComboBox Width="120">
+                <RadioButton x:Name="Select" Content="Select" IsChecked="True"/>
+                <RadioButton x:Name="Delete" Content="Delete"/>
+                <RadioButton x:Name="Add" Content="Add" Unchecked="Add_Unchecked"/>
+                <ComboBox Width="120" SelectionChanged="ComboBox_SelectionChanged">
                     <ComboBoxItem x:Name="POI_Box" Content="POI" IsSelected="True"/>
                     <ComboBoxItem x:Name="Polyline_Box" Content="Polyline"/>
                     <ComboBoxItem x:Name="Polygone_Box" Content="Polygone"/>
@@ -56,7 +60,7 @@
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="5"/>
             <m:Map x:Name="map" Mode="Aerialwithlabels" Grid.Column="3" CredentialsProvider="AqCPTbf4SXq_bvU9_0HXSUxb97y3qFpAfTNpPpuEAP1ODt2YpkGC-asnTneX8Aev" MouseDoubleClick="Map_Selection"/>
             <DockPanel Name="ListDock" Grid.Column="0">
-                <ListBox x:Name="ListeCoo">
+                <ListBox x:Name="ListeCoo" MouseDoubleClick="ListeCoo_DoubleClick">
                 </ListBox>
             </DockPanel>
         </Grid>

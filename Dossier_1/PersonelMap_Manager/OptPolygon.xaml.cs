@@ -1,25 +1,26 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using MyCartographyObjects;
-
 
 namespace PersonelMap_Manager
 {
-    public partial class OptPolyline : Window
+
+    public partial class OptPolygon : Window
     {
         #region VARIABLES
-        private Polyline _polyline;
+        private Polygon _polygon;
         #endregion
 
         #region PROPRIETES
-        public Polyline Poly
+        public Polygon Poly
         {
-            get { return _polyline; }
-            set { _polyline = value; }
+            get { return _polygon; }
+            set { _polygon = value; }
         }
         #endregion
 
         #region CONSTRUCTEURS
-        public OptPolyline(Polyline tmpPoly)
+        public OptPolygon(Polygon tmpPoly)
         {
             InitializeComponent();
             Poly = tmpPoly;
@@ -31,8 +32,6 @@ namespace PersonelMap_Manager
         #region BOUTONS
         private void OK_Button(object sender, RoutedEventArgs e)
         {
-            Poly.Description = Desc.Text;
-            Poly.Couleur = Col.Color;
             this.Close();
         }
         #endregion

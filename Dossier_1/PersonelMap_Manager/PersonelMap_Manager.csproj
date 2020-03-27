@@ -82,11 +82,17 @@
     <Compile Include="Option.xaml.cs">
       <DependentUpon>Option.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OptPolygon.xaml.cs">
+      <DependentUpon>OptPolygon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptPolyline.xaml.cs">
+      <DependentUpon>OptPolyline.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageLogin.xaml.cs">
       <DependentUpon>PageLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TextWindow.xaml.cs">
-      <DependentUpon>TextWindow.xaml</DependentUpon>
+    <Compile Include="OptPOI.xaml.cs">
+      <DependentUpon>OptPOI.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutBox.xaml">
       <SubType>Designer</SubType>
@@ -116,6 +122,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OptPolygon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OptPolyline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,7 +142,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TextWindow.xaml">
+    <Page Include="OptPOI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

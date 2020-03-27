@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace MyCartographyObjects
 {
@@ -38,7 +38,7 @@ namespace MyCartographyObjects
         #region METHODES
         public override string ToString()
         {
-            return base.ToString() + " " + Description;
+            return  "POI : " + Description;
         }
         #endregion
     }

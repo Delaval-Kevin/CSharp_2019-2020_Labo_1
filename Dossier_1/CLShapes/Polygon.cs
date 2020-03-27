@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 using MathFunctions;
+using System.Windows.Media;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
@@ -14,9 +14,10 @@ namespace MyCartographyObjects
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;
-        private Color               _couleur_contour;
-        private Color               _couleur_remplissage;
         private double              _opacite;
+        private string              _couleurContour;
+        private string              _couleurRemplissage;
+        private string              _description;
         #endregion
 
 
@@ -29,14 +30,41 @@ namespace MyCartographyObjects
 
         public Color CouleurContour
         {
-            get { return _couleur_contour; }
-            set { _couleur_contour = value; }
+            get
+            {
+                if (_couleurContour != null)
+                {
+                    return (Color)ColorConverter.ConvertFromString(_couleurContour);
+                }
+                else
+                {
+                    return Colors.Blue;
+                }
+            }
+            set { _couleurContour = value.ToString(); }
         }
+    
 
         public Color CouleurRemplissage
         {
-            get { return _couleur_remplissage; }
-            set { _couleur_remplissage = value; }
+            get
+            {
+                if (_couleurRemplissage != null)
+                {
+                    return (Color)ColorConverter.ConvertFromString(_couleurRemplissage);
+                }
+                else
+                {
+                    return Colors.LightBlue;
+                }
+            }
+            set { _couleurRemplissage = value.ToString(); }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
         }
 
         public double Opacite
@@ -74,22 +102,7 @@ namespace MyCartographyObjects
         #region METHODES
         public override string ToString()
         {
-            string chaine = base.ToString() + " Couleur de remplissage : " + CouleurRemplissage +
-                " Couleur de contour : " + CouleurContour + " Opacite : " + Opacite + " Nombre de points : " + NbPoints + " Liste : ";
-           
-            if (!Coordonnees.Any())
-            {
-                chaine += "VIDE !";
-            }
-            else
-            {
-                foreach (Coordonnees coo in Coordonnees)
-                {
-                    chaine += ("\n\t - " + coo.ToString());
-                }
-            }
-
-            return chaine;
+            return "Polygon : " + Description;
         }
 
         public override void Draw()

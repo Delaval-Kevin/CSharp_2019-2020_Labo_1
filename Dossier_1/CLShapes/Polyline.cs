@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 using MathFunctions;
+using System.Windows.Media;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
@@ -14,7 +14,7 @@ namespace MyCartographyObjects
     {
         #region VARIABLES MEMBRES
         private List<Coordonnees>   _coordonnees;
-        private Color               _couleur;
+        private string              _couleur;
         private int                 _epaisseur;
         private string              _description;
         #endregion
@@ -35,8 +35,18 @@ namespace MyCartographyObjects
 
         public Color Couleur
         {
-            get { return _couleur; }
-            set { _couleur = value; }
+            get 
+            {
+                if (_couleur != null)
+                {
+                    return (Color)ColorConverter.ConvertFromString(_couleur);
+                }
+                else 
+                {
+                    return Colors.Blue;
+                }
+            }
+            set { _couleur = value.ToString(); }
         }
 
         public int NbPoints
@@ -76,21 +86,7 @@ namespace MyCartographyObjects
         #region METHODES
         public override string ToString()
         {
-            string chaine = base.ToString() + " Epaisseur : " + Epaisseur + " Couleur : " + Couleur + " Longueur : " + CalculLongueur() + " Nombre de points : " + NbPoints +" Liste : ";
-
-            if (!Coordonnees.Any())
-            {
-                chaine += "VIDE !";
-            }
-            else
-            {
-                foreach (Coordonnees coo in Coordonnees)
-                {
-                    chaine += ("\n\t - " + coo.ToString());
-                }
-            }
-
-            return chaine;
+            return "Polyline : " + Description;
         }
 
         public override void Draw()
@@ -152,7 +148,7 @@ namespace MyCartographyObjects
 
             for (int i = 0; i < Coordonnees.Count - 1; i++)
             {
-                taille = taille + MathUtil.Dist2Points(Coordonnees[i].Latitude, Coordonnees[i].Longitude, Coordonnees[i + 1].Latitude, Coordonnees[i + 1].Longitude);
+                taille += MathUtil.Dist2Points(Coordonnees[i].Latitude, Coordonnees[i].Longitude, Coordonnees[i + 1].Latitude, Coordonnees[i + 1].Longitude);
             }
             return taille;
         }

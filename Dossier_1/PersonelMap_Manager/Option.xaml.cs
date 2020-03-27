@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using Microsoft.Win32;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using MyCartographyObjects;
+
 
 namespace PersonelMap_Manager
 {
     public partial class Option : Window
     {
         #region EVENEMENTS
-        public event Action<Color, Color> colorChange;
+        public event Action<Color, Color, String> ColorChange;
         #endregion
 
         #region CONSTRUCTEURS
-        public Option()
+        public Option(string pa)
         {
             InitializeComponent();
+            path.Text = pa;
         }
         #endregion
 
@@ -35,7 +31,7 @@ namespace PersonelMap_Manager
 
         private void Apply_Button(object sender, RoutedEventArgs e)
         {
-            colorChange?.Invoke(TextColor.Color, BackColor.Color);
+            ColorChange?.Invoke(TextColor.Color, BackColor.Color, path.Text);
         }
 
         private void Cancel_Button(object sender, RoutedEventArgs e)
@@ -43,5 +39,6 @@ namespace PersonelMap_Manager
             this.Close();
         }
         #endregion
+
     }
 }

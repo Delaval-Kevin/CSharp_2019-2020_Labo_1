@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using MyCartographyObjects;
+using System.Collections.Generic;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace Dossier_1
@@ -62,14 +59,15 @@ namespace Dossier_1
             Console.WriteLine("Le point est il proche selon la precision : {0}", polygon2.IsPointClose(new Coordonnees(1, 5), 1));
             Console.WriteLine("Le point est il proche selon la precision : {0}", polygon2.IsPointClose(new Coordonnees(5, 1), 1));
 
-            List<CartoObj> ListCart = new List<CartoObj>();
-
-            ListCart.Add(polyline1);
-            ListCart.Add(polyline2);
-            ListCart.Add(polygon2);
-            ListCart.Add(new Coordonnees());
-            ListCart.Add(polygon1);
-            ListCart.Add(poi);
+            List<CartoObj> ListCart = new List<CartoObj>
+            {
+                polyline1,
+                polyline2,
+                polygon2,
+                new Coordonnees(),
+                polygon1,
+                poi
+            };
 
             Console.WriteLine("\n\n\n-- Liste de CartoObj --");
             foreach (CartoObj cart in ListCart)
@@ -77,11 +75,13 @@ namespace Dossier_1
                 Console.WriteLine(cart.ToString());
             }
 
-            List<IPointy> IP = new List<IPointy>();
-            IP.Add(polygon1);
-            IP.Add(polyline2);
-            IP.Add(polygon2);
-            IP.Add(polyline1);
+            List<IPointy> IP = new List<IPointy>
+            {
+                polygon1,
+                polyline2,
+                polygon2,
+                polyline1
+            };
             Console.WriteLine("\n\n\n-- Liste de IPointy --");
             foreach (IPointy ip in IP)
             {
@@ -89,13 +89,12 @@ namespace Dossier_1
             }
 
 
-            List<Polyline> t = new List<Polyline>();
+            List<Polyline> t = new List<Polyline>
+            {
+                polyline1,
+                polyline2
+            };
 
-            //    ListCart.Add(polygon1);
-            t.Add(polyline1);
-            //    ListCart.Add(polygon2);
-            t.Add(polyline2);
-            //    ListCart.Add(new POI());
             Console.WriteLine("\n\n\n-- Liste de Polyline avant sort --");
             foreach (CartoObj cart in t)
             {

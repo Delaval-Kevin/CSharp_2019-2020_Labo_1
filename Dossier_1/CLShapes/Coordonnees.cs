@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using MathFunctions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace MyCartographyObjects
@@ -46,7 +46,7 @@ namespace MyCartographyObjects
         #region METHODES
         public override string ToString()
         {
-            return base.ToString() + " (" + Latitude.ToString("0.000") + " : " + Longitude.ToString("0.000") + ")";
+            return " (" + Latitude.ToString("0.000") + " : " + Longitude.ToString("0.000") + ")";
         }
 
         public override bool IsPointClose(Coordonnees coorTmp, double precision)

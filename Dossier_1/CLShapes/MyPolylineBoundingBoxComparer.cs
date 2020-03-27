@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MathFunctions;
+using System.Collections.Generic;
 
 namespace MyCartographyObjects
 {
@@ -41,7 +39,7 @@ namespace MyCartographyObjects
             }
 
             area = MathUtil.Dist2Points(xMin, yMin, xMin, yMax);
-            area = area + MathUtil.Dist2Points(xMin, yMin, xMax, yMin);
+            area += MathUtil.Dist2Points(xMin, yMin, xMax, yMin);
 
             return area;
         }

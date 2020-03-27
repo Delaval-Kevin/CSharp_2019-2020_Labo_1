@@ -1,11 +1,12 @@
 ﻿<Window x:Class="PersonelMap_Manager.OptPOI"
+        x:Name="opt"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonelMap_Manager"
         mc:Ignorable="d"
-        Title="Point option" Height="200" Width="400"
+        Title="Point option" Height="275" Width="400"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,9 +15,12 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Icon="logo2.png">
     <Grid>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="159.654,123.664,0,0" VerticalAlignment="Top" Width="75" Click="OK_Button"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="159.654,200.664,0,0" VerticalAlignment="Top" Width="75" Click="OK_Button"/>
         <TextBlock HorizontalAlignment="Left" Margin="20.311,28.997,0,0" TextWrapping="Wrap" Text="Entrer the name of the POI :" VerticalAlignment="Top"/>
-        <TextBox x:Name="Desc" HorizontalAlignment="Left" Height="23" Margin="72.302,62.329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
-
+        <TextBox x:Name="Desc" HorizontalAlignment="Left" Height="23" Margin="20.302,62.329,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,114,0,0" TextWrapping="Wrap" Text="Latitude :" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="210,114,0,0" TextWrapping="Wrap" Text="Longitude :" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="23,141,0,0" TextWrapping="Wrap" Text="{Binding Path=Latitude}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="210.5,141,0,0" TextWrapping="Wrap" Text="{Binding Path=Longitude}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
