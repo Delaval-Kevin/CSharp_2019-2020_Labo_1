@@ -62,17 +62,17 @@ namespace PersonelMap_Manager
         private void Submit_Button(object sender, RoutedEventArgs e)
         {
             //Vefification si la TextBox est vide 
-            if (User.Prenom.Length < 1 || User.Nom.Length < 1)
+            if (FirstNameBox.Text.Length < 1 || LastNameBox.Text.Length < 1)
             {
-                if (User.Prenom.Length < 1)
+                if (FirstNameBox.Text.Length < 1)
                 {
-                    User.Prenom = "Please enter your first name";
+                    FirstNameBox.Text = "Please enter your first name";
                     FirstNameBox.SetCurrentValue(ForegroundProperty, Brushes.Red);
                     ErrorFN = true;
                 } 
-                if(User.Nom.Length < 1)
+                if(LastNameBox.Text.Length < 1)
                 {
-                    User.Nom = "Please enter your last name";
+                    LastNameBox.Text = "Please enter your last name";
                     LastNameBox.SetCurrentValue(ForegroundProperty, Brushes.Red);
                     ErrorLN = true;
                 }
