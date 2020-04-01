@@ -26,6 +26,7 @@ namespace PersonelMap_Manager
         #region BOUTONS
         private void OK_Button(object sender, RoutedEventArgs e)
         {
+            ColorChange?.Invoke(TextColor.Color, BackColor.Color, path.Text);
             this.Close();
         }
 

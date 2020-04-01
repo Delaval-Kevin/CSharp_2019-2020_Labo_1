@@ -104,7 +104,7 @@ namespace PersonelMap_Manager
         {
             try
             {
-                _user.Save();
+                User.Save();
                 StatBar.Text = "User " + User.Nom + " " + User.Prenom + " is saved"; //Affichage dans la StatusBar
             }
             catch(Exception)//"An error occurred while saving the profile"

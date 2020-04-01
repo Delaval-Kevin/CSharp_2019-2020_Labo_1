@@ -33,7 +33,7 @@
                     <MenuItem x:Name="AboutBoxButton" Header="About box" Click="About_Box_Button"/>
                 </MenuItem>
             </Menu>
-            <ToolBar ToolBarTray.IsLocked="True">
+            <ToolBar ToolBarTray.IsLocked="True" Margin="-3,0,0,0" >
                 <RadioButton x:Name="Select" Content="Select" IsChecked="True"/>
                 <RadioButton x:Name="Delete" Content="Delete"/>
                 <RadioButton x:Name="Add" Content="Add" Unchecked="Add_Unchecked"/>
