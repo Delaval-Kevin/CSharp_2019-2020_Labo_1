@@ -19,12 +19,14 @@ namespace PersonelMap_Manager
         public event Action<int, MyPersonalMapData> PageChange;
         #endregion
 
+
         #region VARIABLES
         private MyPersonalMapData _user;
         private List<Coordonnees> _listeTmp;
         private MapPolyline _polylineTpm;
         private MapPolygon _polygonTpm;
         #endregion
+
 
         #region PROPRIETES
         public MyPersonalMapData User
@@ -52,6 +54,7 @@ namespace PersonelMap_Manager
         }
         #endregion
 
+
         #region CONSTRUCTEURS
         public PagePrincipal(MyPersonalMapData user)
         {
@@ -66,6 +69,7 @@ namespace PersonelMap_Manager
         }
         #endregion
 
+
         #region BOUTONS
         //Fonction d'ouverture pour la fenêtre AboutBox
         private void About_Box_Button(object sender, RoutedEventArgs e)
@@ -73,6 +77,7 @@ namespace PersonelMap_Manager
             AboutBox about = new AboutBox();
             about.ShowDialog(); //bloque la page 
         }
+
 
         //Fonction d'ouverture pour la fenêtre Option
         private void Option_Button(object sender, RoutedEventArgs e)
@@ -82,11 +87,13 @@ namespace PersonelMap_Manager
             option.Show(); //n'empêche pas la page principale de fonctionner
         }
 
+
         //Fonction pour quitter la page principale et revenir à la page login
         private void Exit_Button(object sender, RoutedEventArgs e)
         {
             PageChange?.Invoke(1, null);
         }
+
 
         //Fonction pour charger un autre profil
         private void Open_Button(object sender, RoutedEventArgs e)
@@ -98,6 +105,7 @@ namespace PersonelMap_Manager
             AffichePin();
             StatBar.Text = "User " + User.Nom + " " + User.Prenom + " is loaded"; //Affichage dans la StatusBar
         }
+
 
         //Fonction pour sauvegarder le profil
         private void Save_Button(object sender, RoutedEventArgs e)
@@ -113,6 +121,7 @@ namespace PersonelMap_Manager
                 error.ShowDialog(); //bloque la page 
             }
         }
+
 
         //Fonction pour importer les POI d'un ficher .CSV
         private void POI_Import_Button(object sender, RoutedEventArgs e)
@@ -161,6 +170,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Fonction pour exporter les POI d'un ficher .CSV
         private void POI_Export_Button(object sender, RoutedEventArgs e)
         {
@@ -170,8 +180,6 @@ namespace PersonelMap_Manager
                 {
                     sw.WriteLine(poi.Latitude.ToString() + ";" + poi.Longitude.ToString() + ";" + poi.Description);
                 }
-
-
                 StatBar.Text = "POI exported"; //Affichage dans la StatusBar
             }
             else
@@ -180,6 +188,7 @@ namespace PersonelMap_Manager
                 error.ShowDialog(); //bloque la page
             }
         }
+
 
         //Fonction pour importer les Trajets d'un ficher .CSV
         private void Polyline_Import_Button(object sender, RoutedEventArgs e)
@@ -261,6 +270,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Fonction pour exporter les Trajets d'un ficher .CSV
         private void Polyline_Export_Button(object sender, RoutedEventArgs e)
         {
@@ -282,6 +292,7 @@ namespace PersonelMap_Manager
                 error.ShowDialog(); //bloque la page
             }
         }
+
 
         //Fonction pour importer les Polygons d'un ficher .CSV
         private void Polygon_Import_Button(object sender, RoutedEventArgs e)
@@ -364,6 +375,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Fonction pour exporter les Polygons d'un ficher .CSV
         private void Polygon_Export_Button(object sender, RoutedEventArgs e)
         {
@@ -385,6 +397,7 @@ namespace PersonelMap_Manager
                 error.ShowDialog(); //bloque la page
             }
         }
+
 
         //Fonction qui au double click sur la carte permet d'ajouter un point
         private void Map_Selection(object sender, MouseButtonEventArgs e)
@@ -417,6 +430,8 @@ namespace PersonelMap_Manager
             ReloadList();
         }
 
+
+        //ce centrer sur l'objet selectionné
         private void ListeCoo_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             StatBar.Text = ListeCoo.SelectedItem.ToString(); //Affichage dans la StatusBar
@@ -440,6 +455,7 @@ namespace PersonelMap_Manager
             map.ZoomLevel = 6;
         }
 
+
         //efface la liste temporaire si on decide de modifier le choix de Polyline, Polygon ou POI
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -460,7 +476,8 @@ namespace PersonelMap_Manager
             }
         }
 
-        //efface la liste temporaire si arrete l'ajout de Polyline, Polygon ou POI
+
+        //Efface la liste temporaire si arrete l'ajout de Polyline, Polygon ou POI
         private void Add_Unchecked(object sender, RoutedEventArgs e)
         {
             if (ListeTmp != null)
@@ -481,7 +498,9 @@ namespace PersonelMap_Manager
         }
         #endregion
 
+
         #region METHODES
+        //affiche les objets sur la carte
         private void AffichePin()
         {
             for (int i = 0; i < User.Liste.Count(); i++)
@@ -539,12 +558,14 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Permet de remettre la liste à jour
         private void ReloadList()
         {
             ListeCoo.ItemsSource = null;
             ListeCoo.ItemsSource = User.Liste;
         }
+
 
         //Ajouter un item
         private void AddItem(Location pinLocation)
@@ -658,6 +679,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Ouvrir le menu correspondant à la selection
         private void SelectItem(Location pinLocation)
         {
@@ -710,6 +732,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Supprimer un item
         private void DeleteItem(Location pinLocation)
         {
@@ -730,6 +753,7 @@ namespace PersonelMap_Manager
             }
         }
 
+
         //Fonction appelée par l'évenement de la fenetre option
         private void Option_colorChange(Color text, Color back, String path)
         {
@@ -738,7 +762,6 @@ namespace PersonelMap_Manager
             User.Path = path;
             StatBar.Text = "ListBox color changed"; //Affichage dans la StatusBar
         }
-
         #endregion
     }
 }
